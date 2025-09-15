@@ -3,8 +3,11 @@ package com.springboot.jpa.mapping.dao;
 import com.springboot.jpa.mapping.entity.Instructor;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+
+@Repository
 public class AppDAOImpl implements AppDAO{
 
     // define field for entity manager
