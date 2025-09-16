@@ -4,7 +4,7 @@ package com.springboot.jpa.mapping.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="instructor")
+@Table(name = "instructor")
 public class Instructor {
 
     // annotate the class as an entity and map to db table
@@ -35,11 +35,11 @@ public class Instructor {
     private String email;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="instructor_detail_id")
+    @JoinColumn(name = "instructor_detail_id")
     private InstructorDetail instructorDetail;
 
 
-    public Instructor(){
+    public Instructor() {
 
     }
 

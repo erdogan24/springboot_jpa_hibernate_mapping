@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 @Repository
-public class AppDAOImpl implements AppDAO{
+public class AppDAOImpl implements AppDAO {
 
     // define field for entity manager
 
@@ -17,7 +17,7 @@ public class AppDAOImpl implements AppDAO{
 
     // inject entity  manager using constructor injection
     @Autowired
-    public AppDAOImpl(EntityManager entityManager){
+    public AppDAOImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
@@ -25,5 +25,10 @@ public class AppDAOImpl implements AppDAO{
     @Transactional
     public void save(Instructor theInstructor) {
         entityManager.persist(theInstructor);
+    }
+
+    @Override
+    public Instructor findInstructorById(int theId) {
+        return entityManager.find(Instructor.class, theId);
     }
 }
