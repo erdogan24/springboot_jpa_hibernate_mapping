@@ -20,17 +20,38 @@ public class CruddemoApplication {
     public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 
         return runner -> {
-          //  createInstructor(appDAO);
-          //  findInstructor(appDAO);
+            //  createInstructor(appDAO);
 
-            deleteInstructor(appDAO);
+            //  findInstructor(appDAO);
+
+            //  deleteInstructor(appDAO);
+
+            findInstructorDetail(appDAO);
+
+
         };
+    }
+
+    private void findInstructorDetail(AppDAO appDAO) {
+
+        // get the instructor detail object
+        int theId = 2;
+        InstructorDetail tempInstructorDetail = appDAO.findInstructorDetailById(theId);
+
+        // print the instructor detail
+        System.out.println("tempInstructorDetail: " + tempInstructorDetail);
+
+        // print the associated instructor
+        System.out.println("the associated instructor:" + tempInstructorDetail.getInstructor());
+
+        System.out.println("Done!");
+
     }
 
     private void deleteInstructor(AppDAO appDAO) {
 
         int theId = 1;
-        System.out.println("Deleting instructor id: "+ theId);
+        System.out.println("Deleting instructor id: " + theId);
 
         appDAO.deleteInstructorById(theId);
         System.out.println("Done!");
@@ -44,7 +65,7 @@ public class CruddemoApplication {
         Instructor tempInstructor = appDAO.findInstructorById(theId);
 
         System.out.println("tempInstructor: " + tempInstructor);
-        System.out.println("the associated instructorDetail only: " +tempInstructor.getInstructorDetail() );
+        System.out.println("the associated instructorDetail only: " + tempInstructor.getInstructorDetail());
     }
 
     private void createInstructor(AppDAO appDAO) {

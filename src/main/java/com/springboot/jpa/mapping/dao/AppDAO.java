@@ -1,6 +1,7 @@
 package com.springboot.jpa.mapping.dao;
 
 import com.springboot.jpa.mapping.entity.Instructor;
+import com.springboot.jpa.mapping.entity.InstructorDetail;
 
 public interface AppDAO {
 
@@ -9,4 +10,10 @@ public interface AppDAO {
     Instructor findInstructorById(int theId);
 
     void deleteInstructorById(int theId);
+
+    InstructorDetail findInstructorDetailById(int theId);
+
+
+
+
 }
