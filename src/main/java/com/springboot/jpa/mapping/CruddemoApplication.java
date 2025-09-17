@@ -35,7 +35,7 @@ public class CruddemoApplication {
     private void findInstructorDetail(AppDAO appDAO) {
 
         // get the instructor detail object
-        int theId = 2;
+        int theId = 1;
         InstructorDetail tempInstructorDetail = appDAO.findInstructorDetailById(theId);
 
         // print the instructor detail
