@@ -50,6 +50,7 @@ public class CruddemoApplication {
         // create some courses
         Course tempCourse1 = new Course(" New Course 1");
         Course tempCourse2 = new Course(" New Course 2");
+        Course tempCourse3 = new Course(" New Course 3");
 
         // add courses to instructor
         tempInstructor.add(tempCourse1);
