@@ -1,8 +1,7 @@
 package com.springboot.jpa.mapping.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="course")
@@ -18,10 +17,17 @@ public class Course {
 
     // annotate fields
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
+    @Column(name = "title")
     private String title;
 
+
+    @ManyToOne
+    @JoinColumn(name="instructor_id")
     private Instructor instructor;
 
 
@@ -55,5 +61,13 @@ public class Course {
 
     public void setInstructor(Instructor instructor) {
         this.instructor = instructor;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "title='" + title + '\'' +
+                ", id=" + id +
+                '}';
     }
 }
