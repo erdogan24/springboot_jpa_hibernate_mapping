@@ -1,6 +1,7 @@
 package com.springboot.jpa.mapping;
 
 import com.springboot.jpa.mapping.dao.AppDAO;
+import com.springboot.jpa.mapping.entity.Course;
 import com.springboot.jpa.mapping.entity.Instructor;
 import com.springboot.jpa.mapping.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
@@ -28,15 +29,37 @@ public class CruddemoApplication {
 
             //  findInstructorDetail(appDAO);
 
-               deleteInstructorDetail(appDAO);
+            //   deleteInstructorDetail(appDAO);
 
+            createInstructorWithCourses(appDAO);
 
         };
     }
 
+    private void createInstructorWithCourses(AppDAO appDAO) {
+
+        // create the instructor
+        Instructor tempInstructor = new Instructor("Irem", "Akpolt", "Irem@akpolat.com");
+
+        // create the instructor detail
+        InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.erdogan.com", "Coding ");
+
+        // associate the objects
+        tempInstructor.setInstructorDetail(tempInstructorDetail);
+
+        // create some courses
+        Course tempCourse1 = new Course(" New Course 1");
+        Course tempCourse2 = new Course(" New Course 2");
+
+        // add courses to instructor
+        tempInstructor.add(tempCourse1);
+        tempInstructor.add(tempCourse2);
+
+    }
+
     private void deleteInstructorDetail(AppDAO appDAO) {
         int theId = 1;
-        System.out.println("Deleting instructor detail id: " + theId) ;
+        System.out.println("Deleting instructor detail id: " + theId);
 
         appDAO.deleteInstructorDetailById(theId);
 

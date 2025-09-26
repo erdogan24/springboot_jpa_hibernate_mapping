@@ -4,7 +4,7 @@ package com.springboot.jpa.mapping.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="course")
+@Table(name = "course")
 public class Course {
 
     // define our fields
@@ -26,12 +26,12 @@ public class Course {
     private String title;
 
 
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
-    @JoinColumn(name="instructor_id")
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "instructor_id")
     private Instructor instructor;
 
 
-    public Course (){
+    public Course() {
 
     }
 
